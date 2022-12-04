@@ -10,4 +10,6 @@
 #  photo_id   :integer
 #
 class Comment < ApplicationRecord
+  belongs_to(:photo, { :required => true, :class_name => "Photo", :foreign_key => "photo_id" })
+  belongs_to :user, :required => true
 end
