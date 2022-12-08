@@ -13,11 +13,11 @@
 <table border="1">
   <tr>
     <th>
-      ID
+      Username
     </th>
 
     <th>
-      Username
+      Private?
     </th>
 
     <th></th>
@@ -26,11 +26,28 @@
   <% @users.each do |user| %>
   <tr>
     <td>
-      <%= user.id %>
+      <%= user.username %>
     </td>
 
     <td>
-      <%= user.username %>
+      <%if user.private %>
+      Yes
+      <%else%>
+      No
+      <%end%>
+    </td>
+    <td>
+      <%if session.fetch(:user_id) == nil %>
+      
+      <%else%>
+      <form action="/insert_follow_request" method="post">
+              <input type="hidden" name="query_recipient_id" value="<%=session.fetch(:user_id)%>">
+
+              <button>
+                Follow
+              </button>
+            </form>
+      <%end%>
     </td>
 
     <td>
