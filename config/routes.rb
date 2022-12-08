@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get("/", { :controller => "users", :action => "index" })
 
+  get("/users", {:controller => "users", :action => "index" })
+
   # SIGN UP FORM
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD
