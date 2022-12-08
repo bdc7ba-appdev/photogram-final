@@ -16,4 +16,8 @@ class Comment < ApplicationRecord
   def commenter
     return User.where({ :id => self.author_id }).at(0)
   end
+
+  def photo
+    return Photo.where({ :id => self.photo_id }).at(0)
+  end
 end

@@ -51,18 +51,37 @@ You have to sign in first.
       </dd>
 
       <dt>
+        Posted
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photo.created_at) %> ago
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_photo.likes_count %>
+      </dd>
+
+      <dt>
         Comments count
       </dt>
       <dd>
         <%= @the_photo.comments_count %>
       </dd>
 
-       <dt>
-        Likes count
+      <dt>
+        Fans
       </dt>
       <dd>
-        <%= @the_photo.likes_count %>
+      <%@the_photo.fans.each do |fan|%>
+        <%= fan.username %>
+
+        <%end%>
       </dd>
+
+       
 
      
       <dd>
@@ -70,11 +89,11 @@ You have to sign in first.
   <dd>
 
     <form action="/insert_like" method="post">
-      <input type="hidden" value="<%=User.where({:id => session.fetch(:user_id)}).at(0).username%>" name="query_photo_id">
+      <input type="hidden" value="<%=@the_photo.id%>" name="query_photo_id">
       <button>Like</button>
     </form>
   </dd>
-      </dd>
+</dd>
      
 
     
