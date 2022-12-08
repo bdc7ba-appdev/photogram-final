@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get("/", { :controller => "users", :action => "index" })
 
   get("/users", {:controller => "users", :action => "index" })
+  get("/users/:the_username", { :controller => "user_authentication", :action => "show"})
+
 
   # SIGN UP FORM
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        

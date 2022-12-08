@@ -11,9 +11,9 @@
 <%else%>
 <div>
 
-    <form action="/insert_photo" method="post" enctype="multipart/form-data">
+  <form action="/insert_photo" method="post" enctype="multipart/form-data">
   <label for="image">Image</label>
-  <input id="image" type="file" name="image" placeholder="Enter a URL for the image...">
+  <input id="image" type="file" name="image" class="form-control">
 
   <label for="browser_caption">Caption</label>
   <textarea id="browser_caption" name="query_caption" placeholder="Enter a caption for the photo..."></textarea>
@@ -38,7 +38,7 @@
   <% @list_of_photos.each do |photo| %>
   <tr>
     <td>
-      <img src="<%= photo.image %>">
+      <img src="<%= photo.image %>" class="img-responsive">
     </td>
 
     <td>
